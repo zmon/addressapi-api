@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
-  /**
-   * Display a listing of the resource
-   *
-   * @return Response
-   */
+
+    // IUserRepository is the interface
+    public function __construct(IAddressRepository $address)
+    {
+        $this->address = $address;
+    }
+/**
+* Display a listing of the resource
+*
+* @return Response
+*/
     public function index()
     {
         return array(
@@ -20,16 +26,13 @@ class AddressController extends Controller
         );
     }
 
-    // public function getAll()
-    // {
-    // }
-    //
-    public function getById()
+    public function getById($userId)
     {
-        return array(
+        $names = array(
           1 => "John",
           2 => "Mary",
           3 => "Steven"
         );
+        return array($userId => $names[$id]);
     }
 }
