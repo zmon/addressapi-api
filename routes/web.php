@@ -14,6 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('name', 'AddressController');
-Route::resource('name/{id}', 'AddressController@getById');
