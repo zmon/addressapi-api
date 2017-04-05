@@ -15,20 +15,20 @@ class CreateAddressTable extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('single_line_address', 255);
-            $table->char('street_address', 255);
-            $table->char('street_number', 10);
-            $table->char('pre_direction', 120);
-            $table->char('street_name', 100);
-            $table->char('street_type', 24);
-            $table->char('post_direction', 10);
-            $table->char('internal', 10);
-            $table->char('city', 120);
-            $table->char('state_abbr', 2);
-            $table->char('zip', 5);
-            $table->char('zip4', 4);
-            $table->decimal('longitude', 13, 10);
-            $table->decimal('latitude', 13, 10);
+            $table->string('single_line_address', 255);
+            $table->string('street_address', 255);
+            $table->string('street_number', 10);
+            $table->string('pre_direction', 120);
+            $table->string('street_name', 100);
+            $table->string('street_type', 24);
+            $table->string('post_direction', 10)->nullable();
+            $table->string('internal', 10)->nullable();
+            $table->string('city', 120);
+            $table->string('state_abbr', 2);
+            $table->string('zip', 5);
+            $table->string('zip4', 4)->nullable();
+            $table->decimal('longitude', 13, 10)->nullable();
+            $table->decimal('latitude', 13, 10)->nullable();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
             $table->softDeletes();
